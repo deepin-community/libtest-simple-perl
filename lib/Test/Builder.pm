@@ -4,7 +4,7 @@ use 5.006;
 use strict;
 use warnings;
 
-our $VERSION = '1.302188';
+our $VERSION = '1.302198';
 
 BEGIN {
     if( $] < 5.008 ) {
@@ -767,7 +767,7 @@ sub _unoverload {
         require overload;
     }
     my $string_meth = overload::Method( $$thing, $type ) || return;
-    $$thing = $$thing->$string_meth();
+    $$thing = $$thing->$string_meth(undef, 0);
 }
 
 sub _unoverload_str {
@@ -1002,15 +1002,7 @@ END
             $self->_is_diag( $got, $type, $expect );
         }
         elsif( $type =~ /^(ne|!=)$/ ) {
-            no warnings;
-            my $eq = ($got eq $expect || $got == $expect)
-                && (
-                    (defined($got) xor defined($expect))
-                 || (length($got)  !=  length($expect))
-                );
-            use warnings;
-
-            if ($eq) {
+            if (defined($got) xor defined($expect)) {
                 $self->_cmp_diag( $got, $type, $expect );
             }
             else {
@@ -1678,7 +1670,7 @@ sub _ending {
     return unless $plan || $count || $failed;
 
     # Ran tests but never declared a plan or hit done_testing
-    if( !$hub->plan and $hub->count ) {
+    if( !defined($hub->plan) and $hub->count ) {
         $self->diag("Tests were run but no plan was declared and done_testing() was not seen.");
 
         if($real_exit_code) {
