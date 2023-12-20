@@ -1,3 +1,46 @@
+1.302198  2023-11-30 10:07:14-08:00 America/Los_Angeles
+
+    - Remove use of defined-or operator
+
+1.302197  2023-11-28 17:30:37-08:00 America/Los_Angeles
+
+    - Add ability to attach timestamps to trace objects via api or env var
+
+1.302196  2023-10-24 10:27:33-07:00 America/Los_Angeles
+
+    - Fix #882
+    - Fix handling of VSTRING and LVALUE refs in is_deeply() #918
+    - Merge several doc fixes from mauke
+
+1.302195  2023-04-28 05:55:54-07:00 America/Los_Angeles
+
+    - Fix done_testing(0) producing 2 plans and an incorrect message
+
+1.302194  2023-03-13 20:06:57-07:00 America/Los_Angeles
+
+    - Fix failing test on 5.10
+
+1.302193  2023-03-06 09:38:00-08:00 America/Los_Angeles
+
+    - Deprecate isn't()
+
+1.302192  2023-02-02 07:34:08-08:00 America/Los_Angeles
+
+    - Silence deprecation warning when testing smartmatch
+
+1.302191  2022-07-09 10:48:09-07:00 America/Los_Angeles
+
+    - CI Fixes
+    - avoid failing when printing diagnostic info comparing partial overload objects
+
+1.302190  2022-03-04 15:07:45-08:00 America/Los_Angeles
+
+    - Fix subtest times to be hi-res
+
+1.302189  2022-02-24 21:23:05-08:00 America/Los_Angeles
+
+    - Fix #890, #891
+
 1.302188  2021-09-29 08:31:27-07:00 America/Los_Angeles
 
     - Fix for non-gcc compilers on 5.10.0
