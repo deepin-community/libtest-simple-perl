@@ -2,7 +2,7 @@ package Test2::API::InterceptResult::Event;
 use strict;
 use warnings;
 
-our $VERSION = '1.302198';
+our $VERSION = '1.302216';
 
 use List::Util   qw/first/;
 use Test2::Util  qw/pkg_to_file/;
@@ -591,7 +591,7 @@ that subtest results can be turned into instances of it on demand.
 
 =item $copy = $event->clone
 
-Create a deep copy of the event. Modifying either event will not effect the
+Create a deep copy of the event. Modifying either event will not affect the
 other.
 
 =back
@@ -612,7 +612,7 @@ returns a list.
 This method may be relatively slow (still super fast) because it determines
 pass or fail by creating an instance of L<Test2::Hub> and asking it to process
 the event, and then asks the hub for its pass/fail state. This is slower than
-bulding in logic to do the check, but it is more reliable as it will always
+building in logic to do the check, but it is more reliable as it will always
 tell you what the hub thinks, so the logic will never be out of date relative
 to the Test2 logic that actually cares.
 
@@ -650,7 +650,7 @@ Possible briefs:
     "SKIP ALL"
     "SKIP ALL: $why"
 
-Note that only the first applicable brief is returned. This is essnetially a
+Note that only the first applicable brief is returned. This is essentially a
 poor-mans TAP that only includes facets that could (but not necessarily do)
 cause a failure.
 
@@ -808,7 +808,7 @@ If you know you will have exactly 1 instance of a facet you can call this.
 If you are correct and there is exactly one instance of the facet it will
 always return the hashref.
 
-If there are 0 instances of the facet this will reutrn undef, not an empty
+If there are 0 instances of the facet this will return undef, not an empty
 list.
 
 If there are more than 1 instance this will throw an exception because your
@@ -873,7 +873,7 @@ Will be undef if not present.
 
 A string that is a unique signature for the trace. If a single context
 generates multiple events they will all have the same signature. This can be
-used to tie assertions and diagnostics sent as seperate events together after
+used to tie assertions and diagnostics sent as separate events together after
 the fact.
 
 =back
@@ -944,7 +944,7 @@ bail-out was requested.
 
 =item EMPTY_LIST_OR_STRING = $event->bailout_brief
 
-Get the brief of the balout if present.
+Get the brief of the bailout if present.
 
 =item EMPTY_LIST_OR_STRING = $event->bailout_reason
 
@@ -1058,7 +1058,7 @@ TODO
 =head1 SOURCE
 
 The source code repository for Test2 can be found at
-F<http://github.com/Test-More/test-more/>.
+L<https://github.com/Test-More/test-more/>.
 
 =head1 MAINTAINERS
 
@@ -1078,11 +1078,11 @@ F<http://github.com/Test-More/test-more/>.
 
 =head1 COPYRIGHT
 
-Copyright 2020 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+Copyright Chad Granum E<lt>exodist@cpan.orgE<gt>.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
-See F<http://dev.perl.org/licenses/>
+See L<https://dev.perl.org/licenses/>
 
 =cut

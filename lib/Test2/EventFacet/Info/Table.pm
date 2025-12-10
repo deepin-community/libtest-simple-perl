@@ -2,7 +2,7 @@ package Test2::EventFacet::Info::Table;
 use strict;
 use warnings;
 
-our $VERSION = '1.302198';
+our $VERSION = '1.302216';
 
 use Carp qw/confess/;
 
@@ -42,7 +42,7 @@ Test2::EventFacet::Info::Table - Intermediary representation of a table.
 =head1 DESCRIPTION
 
 Intermediary representation of a table for use in specialized
-L<Test::API::Context> methods which generate L<Test2::EventFacet::Info> facets.
+L<Test2::API::Context> methods which generate L<Test2::EventFacet::Info> facets.
 
 =head1 SYNOPSIS
 
@@ -114,7 +114,7 @@ L<Test2::EventFacet::Info> structure.
 =head1 SOURCE
 
 The source code repository for Test2 can be found at
-F<http://github.com/Test-More/test-more/>.
+L<https://github.com/Test-More/test-more/>.
 
 =head1 MAINTAINERS
 
@@ -134,11 +134,11 @@ F<http://github.com/Test-More/test-more/>.
 
 =head1 COPYRIGHT
 
-Copyright 2020 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+Copyright Chad Granum E<lt>exodist@cpan.orgE<gt>.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
-See F<http://dev.perl.org/licenses/>
+See L<https://dev.perl.org/licenses/>
 
 =cut

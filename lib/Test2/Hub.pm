@@ -2,7 +2,7 @@ package Test2::Hub;
 use strict;
 use warnings;
 
-our $VERSION = '1.302198';
+our $VERSION = '1.302216';
 
 
 use Carp qw/carp croak confess/;
@@ -25,6 +25,8 @@ use Test2::Util::HashBase qw{
     _context_init
     _context_release
 
+    suppress_release_error
+
     uuid
     active
     count
@@ -35,6 +37,14 @@ use Test2::Util::HashBase qw{
     _plan
     skip_reason
 };
+
+{
+    no warnings 'once';
+    # Support an originally misspelled method name, at least 1 downstream
+    # release already uses it. It will be fixed, but we do not want to break
+    # things before it is fixed.
+    *surpress_release_error = \&suppress_release_error;
+}
 
 my $UUID_VIA;
 
@@ -233,8 +243,8 @@ sub add_context_acquire {
 *remove_context_aquire = \&remove_context_acquire;
 sub remove_context_acquire {
     my $self = shift;
-    my %subs = map {$_ => $_} @_;
-    @{$self->{+_CONTEXT_ACQUIRE}} = grep { !$subs{$_} == $_ } @{$self->{+_CONTEXT_ACQUIRE}};
+    my %subs = map {$_ => 1} @_;
+    @{$self->{+_CONTEXT_ACQUIRE}} = grep { !$subs{$_} } @{$self->{+_CONTEXT_ACQUIRE}};
 }
 
 sub add_context_init {
@@ -251,8 +261,8 @@ sub add_context_init {
 
 sub remove_context_init {
     my $self = shift;
-    my %subs = map {$_ => $_} @_;
-    @{$self->{+_CONTEXT_INIT}} = grep { !$subs{$_} == $_ } @{$self->{+_CONTEXT_INIT}};
+    my %subs = map {$_ => 1} @_;
+    @{$self->{+_CONTEXT_INIT}} = grep { !$subs{$_} } @{$self->{+_CONTEXT_INIT}};
 }
 
 sub add_context_release {
@@ -269,8 +279,8 @@ sub add_context_release {
 
 sub remove_context_release {
     my $self = shift;
-    my %subs = map {$_ => $_} @_;
-    @{$self->{+_CONTEXT_RELEASE}} = grep { !$subs{$_} == $_ } @{$self->{+_CONTEXT_RELEASE}};
+    my %subs = map {$_ => 1} @_;
+    @{$self->{+_CONTEXT_RELEASE}} = grep { !$subs{$_} } @{$self->{+_CONTEXT_RELEASE}};
 }
 
 sub send {
@@ -448,8 +458,10 @@ sub finalize {
         my (undef, $ffile, $fline) = @{$self->{+ENDED}};
         my (undef, $sfile, $sline) = @$frame;
 
+        $self->{+SUPPRESS_RELEASE_ERROR} = 1;
+
         die <<"        EOT"
-Test already ended!
+Test already ended! (Did you call done_testing twice?)
 First End:  $ffile line $fline
 Second End: $sfile line $sline
         EOT
@@ -713,7 +725,7 @@ process or thread. You can always add a pre_filter.
 These can be used to remove filters and pre_filters. The C<$sub> argument is
 the reference returned by C<filter()> or C<pre_filter()>.
 
-=item $hub->follow_op(sub { ... })
+=item $hub->follow_up(sub { ... })
 
 Use this to add behaviors that are called just before the hub is finalized. The
 only argument to your codeblock will be a L<Test2::EventFacet::Trace> instance.
@@ -879,7 +891,7 @@ tools, plugins, and other extensions.
 =head1 SOURCE
 
 The source code repository for Test2 can be found at
-F<http://github.com/Test-More/test-more/>.
+L<https://github.com/Test-More/test-more/>.
 
 =head1 MAINTAINERS
 
@@ -899,11 +911,11 @@ F<http://github.com/Test-More/test-more/>.
 
 =head1 COPYRIGHT
 
-Copyright 2020 Chad Granum E<lt>exodist@cpan.orgE<gt>.
+Copyright Chad Granum E<lt>exodist@cpan.orgE<gt>.
 
 This program is free software; you can redistribute it and/or
 modify it under the same terms as Perl itself.
 
-See F<http://dev.perl.org/licenses/>
+See L<https://dev.perl.org/licenses/>
 
 =cut

@@ -1,3 +1,6 @@
 # 'isnt' is the (deprecated) name of a function.
 # Quoting the POD: "Historically we supported an isn't() function as an alias of isnt(), …"
 libtest-simple-perl: typo-in-manual-page isnt isn't [usr/share/man/man3/Test::More.3pm.gz:*]
+libtest-simple-perl: typo-in-manual-page isnt isn't [usr/share/man/man3/Test2::Tools::ClassicCompare.3pm.gz:*]
+libtest-simple-perl: typo-in-manual-page isnt isn't [usr/share/man/man3/Test2::Tools::Compare.3pm.gz:*]
+libtest-simple-perl: spelling-in-override-comment typo-in-manual-page isnt isn't [usr/share/lintian/overrides/libtest-simple-perl:*]

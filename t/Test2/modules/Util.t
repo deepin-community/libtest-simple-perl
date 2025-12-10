@@ -33,16 +33,10 @@ use Test2::Util qw/
     clone_io
 /;
 
-BEGIN {
-    if ($] lt "5.008") {
-        require Test::Builder::IO::Scalar;
-    }
-}
-
 {
     for my $try (\&try, Test2::Util->can('_manual_try'), Test2::Util->can('_local_try')) {
         my ($ok, $err) = $try->(sub { die "xxx" });
-        ok(!$ok, "cought exception");
+        ok(!$ok, "caught exception");
         like($err, qr/xxx/, "expected exception");
 
         ($ok, $err) = $try->(sub { 0 });
@@ -83,11 +77,7 @@ close($io);
 
 my $fh;
 my $out = '';
-if ($] ge "5.008") {
-    open($fh, '>', \$out) or die "Could not open filehandle";
-} else {
-    $fh = Test::Builder::IO::Scalar->new(\$out) or die "Could not open filehandle";
-}
+open($fh, '>', \$out) or die "Could not open filehandle";
 
 $io = clone_io($fh);
 is($io, $fh, "For a scalar handle we simply return the original handle, no other choice");

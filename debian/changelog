@@ -1,3 +1,98 @@
+libtest-simple-perl (1.302216-1) unstable; urgency=medium
+
+  * Import upstream version 1.302216.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 07 Dec 2025 00:57:57 +0100
+
+libtest-simple-perl (1.302214-1) unstable; urgency=medium
+
+  * Import upstream version 1.302214.
+  * Remove «Priority: optional», which is the current default.
+
+ -- gregor herrmann <gregoa@debian.org>  Mon, 15 Sep 2025 20:50:12 +0200
+
+libtest-simple-perl (1.302211-1) unstable; urgency=medium
+
+  * Import upstream version 1.302211.
+  * Remove Rules-Requires-Root: no.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 10 Aug 2025 02:29:12 +0200
+
+libtest-simple-perl (1.302210-1) unstable; urgency=medium
+
+  * Import upstream version 1.302210.
+  * Declare compliance with Debian Policy 4.7.2.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 30 Mar 2025 21:03:32 +0200
+
+libtest-simple-perl (1.302209-1) unstable; urgency=medium
+
+  * Import upstream version 1.302209.
+  * Update years of upstream copyright.
+  * Drop unneeded version constraints.
+
+ -- gregor herrmann <gregoa@debian.org>  Sun, 26 Jan 2025 02:41:57 +0100
+
+libtest-simple-perl (1.302207-1) unstable; urgency=medium
+
+  * Import upstream version 1.302207.
+  * Update years of packaging copyright.
+  * Remove stanza about dropped Test::Builder::IO::Scalar from
+    debian/copyright.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 11 Jan 2025 01:27:33 +0100
+
+libtest-simple-perl (1.302204-1) unstable; urgency=medium
+
+  * Import upstream version 1.302204.
+  * Simplify dependencies for dual-lifed modules.
+
+ -- gregor herrmann <gregoa@debian.org>  Tue, 17 Sep 2024 18:12:25 +0200
+
+libtest-simple-perl (1.302203-1) unstable; urgency=medium
+
+  * Import upstream version 1.302203.
+  * Drop debian/patches/typo-in-manual-page, merged upstream.
+
+ -- gregor herrmann <gregoa@debian.org>  Thu, 05 Sep 2024 18:20:54 +0200
+
+libtest-simple-perl (1.302201-2) unstable; urgency=medium
+
+  * Team upload
+
+  [ gregor herrmann ]
+  * Add Breaks/Replaces/Provides libtest2-suite-perl.
+    In 1.302200 Test2-Suite, packaged as libtest2-suite-perl, was merged into
+    Test-Simple.
+
+ -- Nick Morrott <nickm@debian.org>  Sat, 24 Aug 2024 13:07:27 +0100
+
+libtest-simple-perl (1.302201-1) unstable; urgency=medium
+
+  * Team upload
+
+  * New upstream version 1.302201
+  * d/control:
+    - Refresh (build) dependencies and Suggests
+  * d/copyright:
+    - Refresh upstream files and copyright
+    - Refresh years of Debian copyright
+  * d/lintian-overrides:
+    - Add overrides for additional isnt/isn't false positives
+    - Add override for isnt/isn't false positive in the override itself!
+  * d/patches:
+    - Add patch typo-in-manual-page
+
+ -- Nick Morrott <nickm@debian.org>  Sat, 24 Aug 2024 05:17:02 +0100
+
+libtest-simple-perl (1.302199-1) unstable; urgency=medium
+
+  * Import upstream version 1.302199.
+  * Update years of upstream and packaging copyright.
+  * Declare compliance with Debian Policy 4.7.0.
+
+ -- gregor herrmann <gregoa@debian.org>  Sat, 27 Apr 2024 20:05:24 +0200
+
 libtest-simple-perl (1.302198-1) unstable; urgency=medium
 
   * Import upstream version 1.302198.

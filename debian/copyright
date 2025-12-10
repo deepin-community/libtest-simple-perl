@@ -5,7 +5,7 @@ Source: https://metacpan.org/release/Test-Simple
 
 Files: *
 Copyright: 2001-2009, Michael G Schwern <schwern@pobox.com>
- 2016-2023, Chad Granum <exodist@cpan.org>
+ 2016-2025, Chad Granum <exodist@cpan.org>
 License: Artistic or GPL-1+
 
 Files: lib/Test/Builder.pm
@@ -22,12 +22,6 @@ Files: lib/Test/Builder/Tester.pm
 Copyright:
  2001,      Michael G Schwern <schwern@pobox.com>
  2002-2004, Mark Fowler <mark@twoshortplanks.com>
-License: Artistic or GPL-1+
-
-Files: lib/Test/Builder/IO/Scalar.pm
-Copyright:
- 1996,      Eryq <eryq@zeegee.com>
- 1999-2001, ZeeGee Software Inc
 License: Artistic or GPL-1+
 
 Files: lib/Test/Tester.pm
@@ -53,14 +47,27 @@ Files: lib/Test/use/ok.pm
 Copyright: none
 License: PublicDomain
 
+Files: lib/Test2/Compare/Bag.pm
+Copyright:
+ Chad Granum <exodist@cpan.org>
+ 2018, Gianni Ceccarelli <dakkar@thenautilus.net>
+License: Artistic or GPL-1+
+
+Files: lib/Test2/Util/Guard.pm
+Copyright:
+ 2005-2015, chocolateboy
+ Chad Granum <exodist@cpan.org>
+License: Artistic or GPL-1+
+
 Files: debian/*
 Copyright:
  2006, Florian Ragwitz <rafl@debian.org>
  2008, Marc 'HE' Brockschmidt <he@debian.org>
  2008-2009, Damyan Ivanov <dmn@debian.org>
- 2008-2023, gregor herrmann <gregoa@debian.org>
+ 2008-2025, gregor herrmann <gregoa@debian.org>
  2009, Jonathan Yu <jawnsy@cpan.org>
  2009, Salvatore Bonaccorso <carnil@debian.org>
+ 2024, Nick Morrott <nickm@debian.org>
 License: Artistic or GPL-1+
 
 License: Artistic
